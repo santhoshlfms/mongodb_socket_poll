@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+  <head>
+    <title>Demo</title>
+    <link  href="/stylesheets/bootstrap.css"  rel="stylesheet"  id="bootstrap-css">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body ng-controller="pollController">
+
+      <div class="row">
+              <div class="col-md-6">
+                  <form>
+                      <div class="panel panel-primary">
+                          <div class="panel-heading">
+                              <h3 class="panel-title">
+                                 {{ pollData.topic }}
+                              </h3>
+                          </div>
+                          <div class="panel-body">
+                              <ul class="list-group" ng-repeat="item in pollData.choices">
+                                 
+                                      <li class="list-group-item">
+                                          <div class="radio">
+                                              <label>
+                                                  <input type="radio"  ng-model="selectedRadio.value" value="{{item.value}}"  >
+                                                  {{ item.value }}
+                                               
+                                              </label>
+                                          </div>
+                                      </li>
+                                 
+                              </ul>
+                          </div>
+                          
+
+                          <div class="panel-footer">
+                              <button type="button" class="btn btn-primary btn-sm" ng-click="vote()">Vote</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          
+      </div>
+
+
+   <script src="/js/jquery-1.11.1.min.js"></script>
+   <script src="/js/angular.js"></script>
+   <script src="/socket.io/socket.io.js"></script>
+
+   <script src="/js/chat.js"></script>
+   
+  </body>
+</html>
